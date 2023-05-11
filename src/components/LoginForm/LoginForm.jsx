@@ -1,16 +1,22 @@
-export default function LoginForm ({setUserName}) {
+import { useState } from "react";
+
+export default function LoginForm ({userName, setUserName}) {
+    // cria variavel local para atualizar o nome apenas quando clicar em submit
+    const [inputName, setInputName] = useState(userName);
+
     let login = (event) => {
         event.preventDefault();
-        console.log("submit");
+        if (inputName && inputName.length > 0) {
+            setUserName(inputName);
+        }
     }
+
     return (
-        <>
-            <form id="loginFake" onSubmit={login}>
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" onChange={(event)=>{setUserName(event.target.value)}}/>
-                <button type="submit">Entrar</button>
-            </form>
-        </>
+        <form id="loginFake" onSubmit={login}>
+            <label htmlFor="name">Nome:</label>
+            <input required="required" type="text" id="name" name="name" value={inputName} onChange={(event)=>{setInputName(event.target.value)}}/>
+            <button type="submit">Entrar</button>
+        </form>
     );
 }
 

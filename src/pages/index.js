@@ -1,21 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Header from '../components/Header';
 import Footer from '@/components/Footer';
-import { Main } from 'next/document';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import LoginForm from '@/components/LoginForm';
+import GameInfo from '@/components/GameInfo';
 import { useState } from 'react';
-
-const inter = Inter({ subsets: ['latin'] })
+import { LoggedUserContext } from '@/components/LoggedUserContext/LoggedUserContext';
 
 export default function Home() {
 
   const [userName, setUserName] = useState("Fulano");
 
   return (
-    <>
+    <LoggedUserContext.Provider value={userName}>
       <Head>
         <title>Curso Outono URI</title>
         <meta name="description" content="JavaScript + React + NextJs" />
@@ -25,8 +22,9 @@ export default function Home() {
 
       <Header />
       <WelcomeMessage userName={userName}/>
-      <LoginForm setUserName={setUserName}/>
+      <LoginForm userName={userName} setUserName={setUserName}/>
+      <GameInfo />
       <Footer />
-    </>
+    </LoggedUserContext.Provider>
   )
 }
