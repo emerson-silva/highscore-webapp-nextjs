@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import LoginForm from '@/components/LoginForm';
 import GameInfo from '@/components/GameInfo';
+import { LoggedUserContext } from '@/contexts/LoggedUserContext/LoggedUserContext';
 import { useState } from 'react';
-import { LoggedUserContext } from '@/components/LoggedUserContext/LoggedUserContext';
 
 export default function Home() {
 

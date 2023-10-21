@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { LoggedUserContext } from "../LoggedUserContext/LoggedUserContext"
+import { LoggedUserContext } from "../../contexts/LoggedUserContext/LoggedUserContext"
 
 export default function ScoreRow ({positionNumber, score}) {
     // Estrutura do Score:

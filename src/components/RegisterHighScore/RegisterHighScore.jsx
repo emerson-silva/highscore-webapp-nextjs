@@ -28,9 +28,11 @@ export default function RegisterHighScore ({fetchScores}) {
     return (
         <form id="registerHighScore" onSubmit={registerHighScore}>
             <label htmlFor="hsUserName">Nome:</label>
-            <input type="text" id="hsUserName" value={inputedName} onChange={(event)=>{setInputedName(event.target.value)}} name="name" required="required" minLength={3} />
-            <label htmlFor="hsScore">Nome:</label>
+            <input type="text" id="hsUserName" value={inputedName} onChange=    {(event)=>{setInputedName(event.target.value)}} name="name" required="required" minLength={3} />
+
+            <label htmlFor="hsScore">Pontuação:</label>
             <input type="number" id="hsScore" value={inputedScore} onChange={(event)=>{setInputedScore(event.target.value)}} name="score" required="required" />
+            
             <button type="submit">Entrar</button>
         </form>
     );

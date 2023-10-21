@@ -15,7 +15,7 @@ export default function HighScoreTable ({scores}) {
                 </thead>
                 <tbody>
                     {/*Utiliza Map para chamar uma row para cada score*/}
-                    {scores.map(score => <ScoreRow key={score.id} score={score}/>)}
+                    {scores.map((score, index) => <ScoreRow key={score.id} score={score}/>)}
                 </tbody>
             </table>
         </>
